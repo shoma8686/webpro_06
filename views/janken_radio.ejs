@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>じゃんけん結果</title>
+</head>
+<body>
+  <h1>結果は... <%= result %>！</h1>
+
+  <p>
+    あなたの手: <%= userHand %><br>
+    コンピュータの手: <%= comHand %>
+  </p>
+
+  <p>現在の成績: <%= win %>勝 <%= total - win %>敗</p>
+
+  <hr>
+
+  <h2>もう一回！</h2>
+
+  <!-- ここからが次の勝負のためのフォーム -->
+  <form action="/janken_radio">
+
+    <input type="radio" name="hand" value="グー" id="hand-gu" required>
+    <label for="hand-gu">グー</label>
+
+    <input type="radio" name="hand" value="チョキ" id="hand-choki">
+    <label for="hand-choki">チョキ</label>
+
+    <input type="radio" name="hand" value="パー" id="hand-pa">
+    <label for="hand-pa">パー</label>
+
+    <br><br>
+
+    <!-- 
+      次の勝負に勝敗数を引き継ぐためのhiddenフィールド。
+      valueにはサーバーから渡された値を埋め込む。
+    -->
+    <input type="hidden" name="win" value="<%= win %>">
+    <input type="hidden" name="total" value="<%= total %>">
+
+    <input type="submit" value="勝負！">
+
+  </form>
+  <!-- ここまでがフォーム -->
+
+</body>
+</html>

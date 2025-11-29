@@ -279,7 +279,7 @@ app.get("/omikuji1", (req, res) => {
   let luck = '';
   if( num==1 ) luck = '大吉';
   else if( num==2 ) luck = '中吉';
-  res.send( '今日の運勢は' + luck + 'です' );
+ res.send( '今日の運勢は' + luck + 'です<br><a href="/">トップに戻る</a>' );
 });
 
 app.get("/omikuji2", (req, res) => {

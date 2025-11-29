@@ -6,9 +6,9 @@ app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
-// ==========================================
-// 既存の課題: 京葉線データ定義
-// ==========================================
+
+// 京葉線データ定義
+
 let station2 = [
   { id:1, code:"JE01", name:"東京駅", change:"総武本線，中央線，etc", passengers:403831, distance:0 },
   { id:2, code:"JE02", name:"八丁堀駅", change:"日比谷線", passengers:31071, distance:1.2 },
@@ -19,9 +19,9 @@ let station2 = [
   { id:7, code:"JE18", name:"蘇我駅", change:"内房線，外房線", passengers:31328, distance:43.0 },
 ];
 
-// ==========================================
-// 最終課題用データ定義 (DBの代わり)
-// ==========================================
+
+// 最終課題用データ定義
+
 let book_list = [
   { id: 1, title: "こころ", author: "夏目漱石", price: 400, publisher: "新潮文庫" },
   { id: 2, title: "人間失格", author: "太宰治", price: 350, publisher: "角川文庫" }
@@ -38,9 +38,9 @@ let user_list = [
 ];
 
 
-// ==========================================
+
 // 京葉線アプリ (station2)
-// ==========================================
+
 
 // 一覧
 app.get("/keiyo2", (req, res) => {
@@ -95,16 +95,16 @@ app.post("/keiyo2/update/:number", (req, res) => {
 });
 
 
-// ==========================================
-// 1. 書籍管理アプリ (books)
-// ==========================================
+
+// 1. 書籍管理アプリ 
+
 
 // 一覧表示
 app.get("/books", (req, res) => {
   res.render('book_list', {data: book_list});
 });
 
-// 新規登録画面 (静的HTMLへ)
+// 新規登録画面 
 app.get("/books/create", (req, res) => {
   res.redirect('/public/book_new.html');
 });
@@ -116,13 +116,13 @@ app.get("/books/:number", (req, res) => {
   res.render('book_detail', {id: number, data: detail});
 });
 
-// 削除処理 (GET)
+// 削除処理 
 app.get("/books/delete/:number", (req, res) => {
   book_list.splice(req.params.number, 1);
   res.redirect('/books');
 });
 
-// 新規登録処理 (POST)
+// 新規登録処理 
 app.post("/books", (req, res) => {
   const id = book_list.length + 1;
   const title = req.body.title;
@@ -149,9 +149,9 @@ app.post("/books/update/:number", (req, res) => {
   res.redirect('/books');
 });
 
-// ==========================================
-// 2. 商品管理アプリ (products)
-// ==========================================
+
+// 2. 商品管理アプリ
+
 
 // 一覧
 app.get("/products", (req, res) => {
@@ -204,9 +204,9 @@ app.post("/products/update/:number", (req, res) => {
 });
 
 
-// ==========================================
-// 3. ユーザー管理アプリ (users)
-// ==========================================
+
+// 3. ユーザー管理アプリ
+
 
 // 一覧
 app.get("/users", (req, res) => {
@@ -257,9 +257,9 @@ app.post("/users/update/:number", (req, res) => {
   user_list[req.params.number].email = req.body.email;
   res.redirect('/users');
 });
-// ==========================================
+
 // その他の練習用コード
-// ==========================================
+
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";
   const message2 = "Bon jour";

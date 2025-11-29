@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規ユーザー登録</title>
+</head>
+<body>
+    <h2>新しいユーザーを登録</h2>
+    <form action="/users" method="POST">
+        <label>ユーザーID: <input type="text" name="userid" required></label><br>
+        <label>名前: <input type="text" name="name" required></label><br>
+        <label>年齢: <input type="number" name="age" required></label><br>
+        <label>Email: <input type="email" name="email" required></label><br>
+        <br>
+        <input type="submit" value="登録する">
+    </form>
+    <br>
+    <a href="/users">一覧に戻る</a>
+</body>
+</html>

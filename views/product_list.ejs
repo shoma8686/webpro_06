@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>商品一覧</title>
+</head>
+<body>
+  <h2>商品一覧</h2>
+  <table border="1">
+    <tr><th>ID</th><th>商品コード</th><th>商品名</th></tr>
+    <% let number = 0 %>
+    <% for(let row of data) { %>
+      <tr>
+        <td><%= row.id %></td>
+        <td><%= row.code %></td>
+        <td><a href="/products/<%= number %>"><%= row.name %></a></td>
+      </tr>
+      <% number += 1 %>
+    <% } %>
+  </table>
+  <br>
+  <a href="/products/create">新規商品の追加</a>
+  <hr>
+  <a href="/">トップに戻る</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ユーザー一覧</title>
+</head>
+<body>
+  <h2>ユーザー一覧</h2>
+  <table border="1">
+    <tr><th>ID</th><th>ユーザーID</th><th>名前</th></tr>
+    <% let number = 0 %>
+    <% for(let row of data) { %>
+      <tr>
+        <td><%= row.id %></td>
+        <td><%= row.userid %></td>
+        <td><a href="/users/<%= number %>"><%= row.name %></a></td>
+      </tr>
+      <% number += 1 %>
+    <% } %>
+  </table>
+  <br>
+  <a href="/users/create">新規ユーザー登録</a>
+  <hr>
+  <a href="/">トップに戻る</a>
+</body>
+</html>

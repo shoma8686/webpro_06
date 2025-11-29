@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %></title>
+</head>
+<body>
+  <h2><%= data.name %> の詳細</h2>
+  <table border="1">
+    <tr><th>項目</th><th>データ</th></tr>
+    <tr><td>ID</td><td><%= data.id %></td></tr>
+    <tr><td>コード</td><td><%= data.code %></td></tr>
+    <tr><td>商品名</td><td><%= data.name %></td></tr>
+    <tr><td>カテゴリ</td><td><%= data.category %></td></tr>
+    <tr><td>価格</td><td><%= data.price %>円</td></tr>
+  </table>
+  <br>
+  <a href="/products/edit/<%= id %>">編集</a> | 
+  <a href="/products/delete/<%= id %>">削除</a>
+  <br><br>
+  <a href="/products">一覧に戻る</a>
+</body>
+</html>

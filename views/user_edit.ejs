@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ユーザー編集</title>
+</head>
+<body>
+  <h2>ユーザー情報の編集</h2>
+  <form action="/users/update/<%= id %>" method="POST">
+    <label>ユーザーID: <input type="text" name="userid" value="<%= data.userid %>"></label><br>
+    <label>名前: <input type="text" name="name" value="<%= data.name %>"></label><br>
+    <label>年齢: <input type="number" name="age" value="<%= data.age %>"></label><br>
+    <label>Email: <input type="email" name="email" value="<%= data.email %>"></label><br>
+    <br>
+    <input type="submit" value="更新する">
+  </form>
+  <br>
+  <a href="/users">一覧に戻る</a>
+</body>
+</html>

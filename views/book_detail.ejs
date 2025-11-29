@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.title %></title>
+</head>
+<body>
+  <h2><%= data.title %> の詳細</h2>
+  <table border="1">
+    <tr><th>項目</th><th>データ</th></tr>
+    <tr><td>ID</td><td><%= data.id %></td></tr>
+    <tr><td>書名</td><td><%= data.title %></td></tr>
+    <tr><td>著者</td><td><%= data.author %></td></tr>
+    <tr><td>価格</td><td><%= data.price %>円</td></tr>
+    <tr><td>出版社</td><td><%= data.publisher %></td></tr>
+  </table>
+  <br>
+  <a href="/books/edit/<%= id %>">編集</a> | 
+  <a href="/books/delete/<%= id %>">削除</a>
+  <br><br>
+  <a href="/books">一覧に戻る</a>
+</body>
+</html>
